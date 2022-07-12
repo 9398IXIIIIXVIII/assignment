@@ -1,0 +1,31 @@
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+from selenium.webdriver import ActionChains
+
+
+
+# set the path of the browser or chrome driver
+driver =webdriver.Chrome(executable_path="C:/Users/ROBERT/Downloads/chromedriver_win32/chromedriver.exe")
+
+# open the  url
+driver.get("https://testautomationpractice.blogspot.com/")
+
+# window maximize
+driver.maximize_window()
+
+# locate or identify the drag element
+source = driver.find_element(by=By.XPATH,value="//div[@id='draggable']")
+
+# locate or identify the drop element
+target = driver.find_element(by=By.XPATH,value="//div[@id='droppable']")
+
+# create an action class interface
+actions = ActionChains(driver)
+
+# perform drag and drop action
+actions.drag_and_drop(source,target).perform()
+
+
+
+
+
